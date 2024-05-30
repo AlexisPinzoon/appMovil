@@ -1,4 +1,5 @@
 import 'package:app_project/screens/home_screen.dart';
+import 'package:app_project/screens/login_screen.dart';
 import 'package:app_project/screens/welcome_screen.dart';
 import 'package:app_project/widgets/video_card.dart';
 import 'package:flutter/material.dart';
@@ -17,17 +18,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Estoicismo',
+      title: 'New Branch App',
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: WelcomeScreen(),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
