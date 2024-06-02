@@ -1,10 +1,8 @@
 import 'package:app_project/screens/home_screen.dart';
 import 'package:app_project/screens/login_screen.dart';
-import 'package:app_project/screens/welcome_screen.dart';
 import 'package:app_project/widgets/video_card.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +12,13 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() =>
+      MyAppState(); // Cambiado de _MyAppState a MyAppState
 }
 
-class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
+class MyAppState extends State<MyApp> {
+  // Cambiado de _MyAppState a MyAppState
+  // Este widget es la raíz de tu aplicación.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -41,11 +41,11 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Estoicismo"),
         backgroundColor: Colors.grey,
-        actions: [
-          const Icon(Icons.search),
+        actions: const [
+          Icon(Icons.search),
         ],
       ),
-      body: Column(
+      body: const Column(
         children: [
           VideoCard(),
         ],
