@@ -1,4 +1,6 @@
 import 'package:app_project/screens/home_start_screen.dart';
+import 'package:app_project/widgets/forgetPassword.dart';
+import 'package:app_project/widgets/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +12,8 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +55,14 @@ class _SignInState extends State<SignIn> {
                   labelText: 'Contraseña',
                   prefixIcon: const Icon(Icons.password),
                   suffixIcon: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Forgetpassword()));
+                    },
                     child: const Text(
-                      'Mostrar',
+                      'Recuperar',
                       style: TextStyle(color: Colors.green),
                     ),
                   ),
@@ -68,14 +75,8 @@ class _SignInState extends State<SignIn> {
                 height: 50,
                 child: ElevatedButton(
                     onPressed: () {
-                      FirebaseAuth.instance
-                          .signInWithEmailAndPassword(
-                              email: _emailController.text,
-                              password: _passwordController.text)
-                          .then((value) => {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => HomeStart()))
-                              });
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HomeStart()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
@@ -114,7 +115,10 @@ class _SignInState extends State<SignIn> {
                   fontFamily: 'SFUIDisplay', color: Colors.black, fontSize: 15),
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const SignUp()));
+                },
                 child: const Text(
                   'Registrarse',
                   style: TextStyle(

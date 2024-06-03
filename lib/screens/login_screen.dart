@@ -15,45 +15,45 @@ class LoginScreen extends StatelessWidget {
             height: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('images/estoico.jpg'),
+                  image: const AssetImage('images/estoico.jpg'),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.7), BlendMode.darken)),
             ),
             child: Column(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.fromLTRB(5, 120, 5, 20),
                 ),
                 Image.asset(
                   'images/logo.jpg',
                   height: 175,
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
                 Button(
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => SignUp()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SignUp()));
                   },
                   text: 'Registrarse',
                 ),
-                SizedBox(height: 45),
+                const SizedBox(height: 45),
                 Button(
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => SignIn()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SignIn()));
                   },
                   text: 'Iniciar Sesión',
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 7, right: 10),
                   child: Align(
                     alignment: Alignment.bottomRight,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => SignIn()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const SignIn()));
                       },
                       child: const Text(
                         'Saltar',
@@ -91,7 +91,7 @@ class Button extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.0))),
         child: Text(
           text,
-          style: TextStyle(color: Colors.black, fontSize: 20),
+          style: const TextStyle(color: Colors.black, fontSize: 20),
         ),
       ),
     );

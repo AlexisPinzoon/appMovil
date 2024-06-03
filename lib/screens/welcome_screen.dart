@@ -25,10 +25,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 68, 75, 87),
+        backgroundColor: const Color.fromARGB(255, 68, 75, 87),
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(14.0),
+            padding: const EdgeInsets.all(14.0),
             child: Column(
               children: [
                 Align(

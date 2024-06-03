@@ -1,21 +1,16 @@
-import 'package:app_project/screens/home_start_screen.dart';
 import 'package:app_project/widgets/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class Forgetpassword extends StatefulWidget {
+  const Forgetpassword({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<Forgetpassword> createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
-  final TextEditingController _nameController = TextEditingController();
+class _SignUpState extends State<Forgetpassword> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +33,8 @@ class _SignUpState extends State<SignUp> {
           child: Column(
             children: [
               const Text(
-                'Crear Cuenta',
+                'Olvidaste la contraseña?',
                 style: TextStyle(fontSize: 23, fontWeight: FontWeight.w400),
-              ),
-              const SizedBox(height: 40),
-              TextFields(
-                icon: const Icon(Icons.person_2_outlined),
-                secureText: false,
-                label: 'Nombre',
-                controller: _nameController,
               ),
               const SizedBox(height: 40),
               TextFields(
@@ -54,20 +42,6 @@ class _SignUpState extends State<SignUp> {
                 secureText: false,
                 label: 'Correo Electrónico',
                 controller: _emailController,
-              ),
-              const SizedBox(height: 40),
-              TextFields(
-                icon: const Icon(Icons.password_outlined),
-                secureText: true,
-                label: 'Contraseña',
-                controller: _passwordController,
-              ),
-              const SizedBox(height: 40),
-              TextFields(
-                icon: const Icon(Icons.password_outlined),
-                secureText: true,
-                label: 'Confimar Contraseña',
-                controller: _confirmPasswordController,
               ),
               const SizedBox(
                 height: 10,
@@ -78,8 +52,13 @@ class _SignUpState extends State<SignUp> {
                   height: 50,
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const HomeStart()));
+                        FirebaseAuth.instance
+                            .sendPasswordResetEmail(
+                              email: _emailController.text,
+                            )
+                            .then((value) => {
+                                  Navigator.of(context).pop(),
+                                });
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
@@ -114,7 +93,7 @@ class _SignUpState extends State<SignUp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Ya tienes una cuenta?',
+              'Recordaste tu contraseña?',
               style: TextStyle(
                   fontFamily: 'SFUIDisplay', color: Colors.black, fontSize: 15),
             ),

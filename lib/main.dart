@@ -1,6 +1,5 @@
 import 'package:app_project/screens/home_screen.dart';
 import 'package:app_project/screens/login_screen.dart';
-import 'package:app_project/widgets/video_card.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -46,9 +45,7 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
       body: const Column(
-        children: [
-          VideoCard(),
-        ],
+        children: [],
       ),
     );
   }
