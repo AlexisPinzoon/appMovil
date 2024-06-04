@@ -78,6 +78,14 @@ class _SignUpState extends State<SignUp> {
                   height: 50,
                   child: ElevatedButton(
                       onPressed: () {
+                        FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
+                                email: _emailController.text,
+                                password: _passwordController.text)
+                            .then((value) => {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => HomeStart()))
+                                });
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const HomeStart()));
                       },

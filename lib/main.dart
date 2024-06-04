@@ -1,9 +1,14 @@
-import 'package:app_project/screens/home_screen.dart';
+import 'package:app_project/firebase_options.dart';
 import 'package:app_project/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -16,8 +21,6 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  // Cambiado de _MyAppState a MyAppState
-  // Este widget es la raíz de tu aplicación.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

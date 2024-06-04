@@ -28,16 +28,16 @@ class _BottomNavbarState extends State<BottomNavbar> {
 
     switch (index) {
       case 0:
-        _navigateToRoute(context, '/home', HomeStart());
+        _navigateToRoute(context, '/home', const HomeStart());
         break;
       case 1:
-        _navigateToRoute(context, '/products', ProductsScreen());
+        _navigateToRoute(context, '/products', const ProductsScreen());
         break;
       case 2:
-        _navigateToRoute(context, '/cart', CartScreen());
+        _navigateToRoute(context, '/cart', const CartScreen());
         break;
       case 3:
-        _navigateToRoute(context, '/profile', ProfileScreen());
+        _navigateToRoute(context, '/profile', const ProfileScreen());
         break;
     }
   }

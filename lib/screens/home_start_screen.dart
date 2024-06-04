@@ -1,7 +1,6 @@
 import 'package:app_project/screens/custom_scaffold.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:app_project/screens/productDetail.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeStart extends StatefulWidget {
   const HomeStart({super.key});
@@ -12,6 +11,7 @@ class HomeStart extends StatefulWidget {
 
 class _HomeStartState extends State<HomeStart> {
   List<CardItem> cardItems = [];
+  String searching = '';
 
   @override
   void initState() {
@@ -50,13 +50,18 @@ class _HomeStartState extends State<HomeStart> {
                 color: Colors.white,
                 child: Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                         child: TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Buscar camisetas, pantalones o accesorios',
                         border: InputBorder.none,
                         icon: Icon(Icons.search),
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          searching = value;
+                        });
+                      },
                     )),
                     IconButton(
                         onPressed: () {}, icon: const Icon(Icons.filter_alt)),
@@ -66,14 +71,17 @@ class _HomeStartState extends State<HomeStart> {
             ),
             Expanded(
               child: GridView.count(
-                crossAxisCount: 2,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                children: cardItems.map((cardItem) {
-                  return buildCard(cardItem);
-                }).toList(),
-              ),
-            )
+                  crossAxisCount: 2,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  children: cardItems
+                      .where((cardItem) => cardItem.title
+                          .toUpperCase()
+                          .contains(searching.toUpperCase()))
+                      .map((cardItem) {
+                    return buildCard(cardItem);
+                  }).toList()),
+            ),
           ],
         ),
       ),
@@ -83,41 +91,47 @@ class _HomeStartState extends State<HomeStart> {
   }
 
   Widget buildCard(CardItem cardItem) {
-    return Card(
-        child: Column(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height / 10,
-          child: PageView.builder(
-            itemBuilder: (context, index) {
-              return Image.asset(
-                cardItem.images,
-                fit: BoxFit.fitHeight,
-              );
-            },
-          ),
-        ),
-        ListTile(
-            title: Text(
-              cardItem.title,
-              style: const TextStyle(color: Colors.black),
+    return GestureDetector(
+      onTap: () async {
+        await Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ProductDetail()));
+      },
+      child: Card(
+          child: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 10,
+            child: PageView.builder(
+              itemBuilder: (context, index) {
+                return Image.asset(
+                  cardItem.images,
+                  fit: BoxFit.fitHeight,
+                );
+              },
             ),
-            subtitle: Text(cardItem.pricing),
-            trailing: Container(
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(8.0),
+          ),
+          ListTile(
+              title: Text(
+                cardItem.title,
+                style: const TextStyle(color: Colors.black),
               ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                child: Text(
-                  'Premium',
-                  style: TextStyle(color: Colors.white),
+              subtitle: Text(cardItem.pricing),
+              trailing: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-              ),
-            ))
-      ],
-    ));
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  child: Text(
+                    'Premium',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ))
+        ],
+      )),
+    );
   }
 }
 

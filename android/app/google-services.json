@@ -1,13 +1,32 @@
 {
   "project_info": {
-    "project_number": "9763340167",
-    "project_id": "loginproject-25af7",
-    "storage_bucket": "loginproject-25af7.appspot.com"
+    "project_number": "1079984203749",
+    "project_id": "loginapp-500bb",
+    "storage_bucket": "loginapp-500bb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:9763340167:android:0cf2bbf302cb7217fc9d22",
+        "mobilesdk_app_id": "1:1079984203749:android:b3ffe9c83ba58406faf10c",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgNmFE6NFTJkuVfnF5Ab-obeewMeihyP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079984203749:android:a92e398b368cda46faf10c",
         "android_client_info": {
           "package_name": "com.example.app_project"
         }
@@ -15,7 +34,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCAKxLTUH7G5J4n4_WyLskGEMYcHrULpYQ"
+          "current_key": "AIzaSyBgNmFE6NFTJkuVfnF5Ab-obeewMeihyP0"
         }
       ],
       "services": {
