@@ -1,7 +1,6 @@
 import 'package:app_project/screens/home_start_screen.dart';
 import 'package:app_project/widgets/forgetPassword.dart';
 import 'package:app_project/widgets/sign_up.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {

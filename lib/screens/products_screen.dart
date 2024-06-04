@@ -19,6 +19,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
     'Camisetas',
     'Camisetas',
   ];
+  List<String> pricing = [
+    ' \$70.000',
+    '\$80.000',
+    '\$100.000',
+    '\$75.000',
+    '\$80.000'
+  ];
 
   @override
   void initState() {
@@ -92,6 +99,23 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           ),
                           child: Text(
                             titles[index],
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Text(
+                            pricing[index],
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 24,

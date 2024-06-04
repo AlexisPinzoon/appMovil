@@ -84,7 +84,7 @@ class _SignUpState extends State<SignUp> {
                                 password: _passwordController.text)
                             .then((value) => {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => HomeStart()))
+                                      builder: (context) => const HomeStart()))
                                 });
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const HomeStart()));

@@ -1,3 +1,4 @@
+import 'package:app_project/screens/home_start_screen.dart';
 import 'package:app_project/widgets/sign_in.dart';
 import 'package:app_project/widgets/sign_up.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                     child: TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const SignIn()));
+                            builder: (context) => const HomeStart()));
                       },
                       child: const Text(
                         'Saltar',
