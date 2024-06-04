@@ -1,16 +1,29 @@
-# app_project
+# New Branch App
 
-A new Flutter project.
+New Branch App es una aplicación movil desarrollada en Flutter. La aplicación permite a los usuarios buscar, ver y comprar productos de ropa. También integra Firebase para la autenticación y almacenamiento de imágenes.
 
-## Getting Started
+## Características
 
-This project is a starting point for a Flutter application.
+- **Autenticación**: Los usuarios pueden registrarse e iniciar sesión.
+- **Búsqueda de Productos**: Búsqueda de productos por nombre.
+- **Visualización de Productos**: Los usuarios pueden ver una lista de productos con imágenes y detalles.
+- **Integración con Firebase**: Utiliza Firebase Storage para almacenar y recuperar imágenes de productos.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Requisitos Previos
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Antes de comenzar, asegúrate de tener instalados los siguientes requisitos:
+
+- [Flutter](https://flutter.dev/docs/get-started/install)
+- [Firebase CLI](https://firebase.google.com/docs/cli)
+- Cuenta de Firebase
+
+## Instalación
+
+1. Clona el repositorio.
+2. Ejecuta `flutter pub get` para instalar las dependencias.
+
+
+
+
+
