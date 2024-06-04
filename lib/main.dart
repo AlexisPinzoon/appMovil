@@ -1,15 +1,20 @@
 import 'package:app_project/firebase_options.dart';
 import 'package:app_project/screens/login_screen.dart';
+import 'package:app_project/screens/provider.dart';
+import 'package:app_project/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CartProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -28,7 +33,7 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      home: const InitScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

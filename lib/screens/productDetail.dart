@@ -1,5 +1,7 @@
+import 'package:app_project/screens/provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({super.key});
@@ -11,6 +13,11 @@ class ProductDetail extends StatefulWidget {
 class _ProductDetailState extends State<ProductDetail> {
   int _currentSlide = 0;
   int selectedButton = 2;
+
+  void addToCart() {
+    CartItem newItem = CartItem(name: 'Camiseta', price: 80.000, quantity: 1);
+    Provider.of<CartProvider>(context, listen: false).addToCart(newItem);
+  }
 
   void selectButton(int buttonIndex) {
     setState(() {
@@ -112,6 +119,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   child: ElevatedButton(
                     onPressed: () {
                       selectButton(1);
+                      addToCart();
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
